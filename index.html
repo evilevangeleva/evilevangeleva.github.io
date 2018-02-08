@@ -228,11 +228,29 @@ font-family: 'Russo One', sans-serif;
 font-family: 'Alfa Slab One', cursive;
 	*/
 	//  <--#3498db;-->
-
-
+var last_three_sounds=[];
+		var num_of_sounds=7;
 		function makeSound(){
+			
+			var sound_number = Math.floor(Math.random()*num_of_sounds)+1;
+			console.log(last_three_sounds[0]+"  "+last_three_sounds[1]+" "+last_three_sounds[2]+" "+sound_number+" "+last_three_sounds.indexOf(sound_number))
+			
+			//sees if sound number is in the last three sounds
+			while(last_three_sounds.indexOf(sound_number)>-1){
+				sound_number = Math.floor(Math.random()*num_of_sounds)+1;
+				console.log("was found new; "+ sound_number)
+			}
+			
+			//adds the new sound to the last three
+			last_three_sounds[0]=last_three_sounds[1];
+			last_three_sounds[1]=last_three_sounds[2];
+			last_three_sounds[2]=sound_number;
+
+
+			
 			var sound = document.getElementById("speachaudio");
-			sound.src="message2.mp3";
+			var sound_src = "angelsounds/angel"+sound_number+".mp3";
+			sound.src=sound_src;
 			sound.play();
 		}
 		</script>
