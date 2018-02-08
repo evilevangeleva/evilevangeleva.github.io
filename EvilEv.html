@@ -190,8 +190,10 @@
 	*/
 	//  <--#3498db;-->
 		function makeSound(){
+			var sound_number = Math.floor(Math.random()*7)+1;
 			var sound = document.getElementById("speachaudio");
-			sound.src="evilsounds/evil1.wav";
+			var sound_src = "evilsounds/evil"+sound_number+".wav";
+			sound.src=sound_src;
 			sound.play();
 		}
 		</script>
